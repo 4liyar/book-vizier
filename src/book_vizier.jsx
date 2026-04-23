@@ -2018,12 +2018,7 @@ export default function BookVizier() {
       {view === 'auth' ? (
         <AuthScreen t={t} isRTL={isRTL} authMode={authMode} setAuthMode={setAuthMode} onSubmit={handleAuth} lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
       ) : (
-        <div className="app-shell">
-          <aside className="sidebar">
-            <div className="sidebar-brand" style={{ padding: '0 20px 24px', justifyContent: 'center' }}>
-              
-            </div>
-            
+        <div className="app-shell">            
             <nav style={{ flex: 1 }}>
               <div className={`nav-item ${view === 'dashboard' ? 'active' : ''}`} onClick={() => { setView('dashboard'); setSelectedProjectId(null); }}>
                 <BookOpen size={16} /> {t.dashboard}
