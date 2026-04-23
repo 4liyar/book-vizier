@@ -2018,7 +2018,15 @@ export default function BookVizier() {
       {view === 'auth' ? (
         <AuthScreen t={t} isRTL={isRTL} authMode={authMode} setAuthMode={setAuthMode} onSubmit={handleAuth} lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
       ) : (
-        <div className="app-shell">            
+        <div className="app-shell"> 
+          <aside className="sidebar">
+            <div className="sidebar-brand" style={{ padding: '0 20px 24px', justifyContent: 'center' }}>
+              <div className="sidebar-brand-logo-wrap">
+                <img src="/BVLogo.png" alt={t.appName} className="sidebar-brand-logo" />
+              </div>
+
+            </div>
+
             <nav style={{ flex: 1 }}>
               <div className={`nav-item ${view === 'dashboard' ? 'active' : ''}`} onClick={() => { setView('dashboard'); setSelectedProjectId(null); }}>
                 <BookOpen size={16} /> {t.dashboard}
@@ -2131,7 +2139,7 @@ function AuthScreen({ t, isRTL, authMode, setAuthMode, onSubmit, lang, setLang, 
       
       <div className="auth-card">
         <div className="auth-logo">
-          <div className="logo-icon"><Feather size={32} /></div>
+          
           <div className="brand-logo-plate">
             <img src="/BVLogo.png" alt={t.appName} />
           </div>
