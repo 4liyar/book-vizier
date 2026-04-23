@@ -5,7 +5,7 @@ import { BookOpen, Plus, Search, Edit3, Trash2, Award, TrendingUp, Settings, Log
 const translations = {
   en: {
     appName: 'Book Vizier',
-    tagline: 'A scribe for your literary ambitions',
+    tagline: 'Sally forth to your literary dreams with this powerful tool',
     signIn: 'Sign In', signUp: 'Sign Up', signOut: 'Sign Out',
     username: 'Username', password: 'Password',
     haveAccount: 'Have an account?', noAccount: 'New scribe?',
@@ -27,7 +27,7 @@ const translations = {
     logOut: 'Sign out?', yes: 'Yes', no: 'No',
     minWords: 'Min 10,000', maxWords: 'Max 200,000',
     activeProjects: 'Active Works', completedWorks: 'Completed Works',
-    member: 'Scribe since', chooseFile: 'Choose file (.docx, .txt, .pdf)',
+    member: 'Author since', chooseFile: 'Choose file (.docx, .txt, .pdf)',
     analyzeWriting: 'Analyze Manuscript', grammarCheck: 'Grammar & Style',
     consistency: 'Consistency Analysis', insights: 'Progress Insights',
     bronze: 'Bronze Quill', silver: 'Silver Quill', gold: 'Gold Quill',
@@ -2021,9 +2021,7 @@ export default function BookVizier() {
         <div className="app-shell">
           <aside className="sidebar">
             <div className="sidebar-brand" style={{ padding: '0 20px 24px', justifyContent: 'center' }}>
-              <div className="sidebar-brand-logo-wrap">
-                <img src="/BVLogo.png" alt={t.appName} className="sidebar-brand-logo" />
-              </div>
+              
             </div>
             
             <nav style={{ flex: 1 }}>
