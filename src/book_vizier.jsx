@@ -25,7 +25,7 @@ const translations = {
     suggestions: 'Recommended Readings', language: 'Language',
     theme: 'Theme', lightMode: 'Light', darkMode: 'Dark',
     logOut: 'Sign out?', yes: 'Yes', no: 'No',
-    minWords: 'Min 10,000', maxWords: 'Max 200,000',
+    minWords: 'Min 1000', maxWords: 'Max 200,000',
     activeProjects: 'Active Works', completedWorks: 'Completed Works',
     member: 'Author since', chooseFile: 'Choose file (.docx, .txt, .pdf)',
     analyzeWriting: 'Analyze Manuscript', grammarCheck: 'Grammar & Style',
@@ -87,7 +87,7 @@ const translations = {
     suggestions: 'قراءات موصى بها', language: 'اللغة',
     theme: 'المظهر', lightMode: 'فاتح', darkMode: 'داكن',
     logOut: 'تسجيل الخروج؟', yes: 'نعم', no: 'لا',
-    minWords: 'الحد الأدنى 10,000', maxWords: 'الحد الأقصى 200,000',
+    minWords: 'الحد الأدنى 1000', maxWords: 'الحد الأقصى 200,000',
     activeProjects: 'الأعمال النشطة', completedWorks: 'الأعمال المكتملة',
     member: 'كاتب منذ', chooseFile: 'اختر ملف (.docx, .txt, .pdf)',
     analyzeWriting: 'تحليل المخطوطة', grammarCheck: 'النحو والأسلوب',
@@ -149,7 +149,7 @@ const translations = {
     suggestions: 'کتاب‌های پیشنهادی', language: 'زبان',
     theme: 'پوسته', lightMode: 'روشن', darkMode: 'تیره',
     logOut: 'خروج از حساب؟', yes: 'بله', no: 'خیر',
-    minWords: 'حداقل ۱۰,۰۰۰', maxWords: 'حداکثر ۲۰۰,۰۰۰',
+    minWords: 'حداقل ۱۰۰۰', maxWords: 'حداکثر ۲۰۰,۰۰۰',
     activeProjects: 'آثار فعال', completedWorks: 'آثار تکمیل شده',
     member: 'نویسنده از', chooseFile: 'فایل انتخاب کنید (.docx, .txt, .pdf)',
     analyzeWriting: 'تحلیل دست‌نوشته', grammarCheck: 'دستور و سبک',
@@ -2273,7 +2273,7 @@ function NewProjectModal({ t, onClose, onCreate, isRTL }) {
   const submit = () => {
     if (!title.trim()) { setError(t.projectName); return; }
     if (categories.length < 1 || categories.length > 3) { setError(t.categoryLimit); return; }
-    if (projectedWordCount < 10000 || projectedWordCount > 200000) { setError(`${t.minWords} / ${t.maxWords}`); return; }
+    if (projectedWordCount < 1000 || projectedWordCount > 200000) { setError(`${t.minWords} / ${t.maxWords}`); return; }
     if (numberOfMilestones < 3 || numberOfMilestones > 10) { setError(t.milestoneRange); return; }
     onCreate({ title: title.trim(), categories, projectedWordCount: Number(projectedWordCount), numberOfMilestones: Number(numberOfMilestones) });
   };
@@ -2303,7 +2303,7 @@ function NewProjectModal({ t, onClose, onCreate, isRTL }) {
         
         <div className="form-group">
           <label className="form-label">{t.wordCount} ({t.minWords} / {t.maxWords})</label>
-          <input type="number" className="form-input" value={projectedWordCount} onChange={(e) => setProjectedWordCount(e.target.value)} min={10000} max={200000} step={1000} />
+          <input type="number" className="form-input" value={projectedWordCount} onChange={(e) => setProjectedWordCount(e.target.value)} min={1000} max={200000} step={1000} />
         </div>
         
         <div className="form-group">
@@ -2344,7 +2344,7 @@ function ProjectDetail({ t, project, onBack, onUpdate, onAddProgress, onDelete, 
   
   const saveEdit = () => {
     if (editData.categories.length < 1 || editData.categories.length > 3) return;
-    if (editData.projectedWordCount < 10000 || editData.projectedWordCount > 200000) return;
+    if (editData.projectedWordCount < 1000 || editData.projectedWordCount > 200000) return;
     if (editData.numberOfMilestones < 3 || editData.numberOfMilestones > 10) return;
     
     // Recalculate milestones
@@ -2412,7 +2412,7 @@ function ProjectDetail({ t, project, onBack, onUpdate, onAddProgress, onDelete, 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <div className="form-group">
               <label className="form-label">{t.wordCount}</label>
-              <input type="number" className="form-input" value={editData.projectedWordCount} onChange={(e) => setEditData({ ...editData, projectedWordCount: Number(e.target.value) })} min={10000} max={200000} />
+              <input type="number" className="form-input" value={editData.projectedWordCount} onChange={(e) => setEditData({ ...editData, projectedWordCount: Number(e.target.value) })} min={1000} max={200000} />
             </div>
             <div className="form-group">
               <label className="form-label">{t.milestones}</label>
